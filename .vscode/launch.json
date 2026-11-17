@@ -1,0 +1,19 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Library Web Application",
+      "request": "launch",
+      "mainClass": "com.library.web.LibraryWebApplication",
+      "projectName": "library-management-system"
+    },
+    {
+      "type": "java",
+      "name": "Library Desktop Client",
+      "request": "launch",
+      "mainClass": "com.library.Main",
+      "projectName": "library-management-system"
+    }
+  ]
+}

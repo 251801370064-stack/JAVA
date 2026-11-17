@@ -1,0 +1,6 @@
+.git
+.vscode
+.idea
+library.properties
+target
+*.log

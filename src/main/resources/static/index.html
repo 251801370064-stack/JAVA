@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#183653">
+  <title>Library Desk</title>
+  <link rel="stylesheet" href="/app.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <section id="loginView" class="auth-shell" hidden>
+    <div class="auth-brand">
+      <div class="brand-mark">L<span>.</span></div>
+      <p class="eyebrow">LIBRARY OPERATIONS</p>
+      <h1>Library<br>Desk</h1>
+      <p class="brand-copy">A clear view of your collection, members, and everything moving between them.</p>
+      <div class="brand-foot">ADMINISTRATION PORTAL <span>•</span> SECURE ACCESS</div>
+    </div>
+    <div class="auth-side">
+      <div class="auth-form-wrap">
+        <p class="eyebrow" id="authEyebrow">WELCOME BACK</p>
+        <h2 id="authTitle">Administrator sign in</h2>
+        <p class="muted" id="authDescription">Sign in to continue to your library workspace.</p>
+        <form id="authForm" class="stack-form">
+          <label>Username<input name="username" autocomplete="username" required minlength="3" maxlength="80"></label>
+          <label>Password<input name="password" type="password" autocomplete="current-password" required minlength="10"></label>
+          <label id="confirmField" hidden>Confirm password<input name="confirmation" type="password" autocomplete="new-password" minlength="10"></label>
+          <button class="button primary full" id="authSubmit" type="submit">Sign in</button>
+          <p class="form-error" id="authError" role="alert"></p>
+        </form>
+        <p class="auth-note">Administrator passwords are stored as salted, one-way hashes.</p>
+      </div>
+    </div>
+  </section>
+
+  <div id="appView" class="app-shell" hidden>
+    <aside class="sidebar">
+      <a class="brand-lockup" href="#dashboard" aria-label="Library Desk home">
+        <span class="brand-mark small">L<span>.</span></span>
+        <span><strong>Library Desk</strong><small>MANAGEMENT</small></span>
+      </a>
+      <p class="nav-caption">WORKSPACE</p>
+      <nav id="mainNav" class="main-nav" aria-label="Main navigation">
+        <button data-page="dashboard" class="nav-item active"><span class="nav-icon">01</span>Dashboard</button>
+        <button data-page="books" class="nav-item"><span class="nav-icon">02</span>Books</button>
+        <button data-page="students" class="nav-item"><span class="nav-icon">03</span>Students</button>
+        <button data-page="issues" class="nav-item"><span class="nav-icon">04</span>Issue books</button>
+        <button data-page="returns" class="nav-item"><span class="nav-icon">05</span>Returns &amp; fines</button>
+        <button data-page="reports" class="nav-item"><span class="nav-icon">06</span>Reports</button>
+        <button data-page="settings" class="nav-item"><span class="nav-icon">07</span>Settings</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="signed-in"><span class="status-dot"></span><span><small>SIGNED IN AS</small><strong id="signedInName">Administrator</strong></span></div>
+        <button id="logoutButton" class="logout-button">Sign out <span aria-hidden="true">↗</span></button>
+      </div>
+    </aside>
+    <main class="main-area">
+      <header class="topbar">
+        <div><p class="eyebrow" id="pageKicker">LIBRARY OVERVIEW</p><h1 id="pageTitle">Dashboard</h1></div>
+        <div class="topbar-date" id="todayLabel"></div>
+      </header>
+      <section id="pageContent" class="page-content" aria-live="polite"></section>
+    </main>
+  </div>
+
+  <dialog id="formDialog" class="form-dialog">
+    <form id="dialogForm" method="dialog">
+      <div class="dialog-head"><div><p class="eyebrow" id="dialogKicker">RECORD</p><h2 id="dialogTitle"></h2></div><button type="button" class="icon-button" id="dialogClose" aria-label="Close">×</button></div>
+      <div id="dialogFields" class="dialog-fields"></div>
+      <div class="dialog-actions"><button type="button" class="button quiet" id="dialogCancel">Cancel</button><button type="submit" class="button primary" id="dialogSubmit">Save changes</button></div>
+    </form>
+  </dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
